@@ -1,0 +1,54 @@
+#
+# @author: Dimitrov Blagoi
+#
+
+import IO
+import ALGO
+import DOCX
+import WEB
+
+var page_filename := const index.html
+var traverse_tags := const @html@body@div!3@div!3@div!4@div@table!DAY@tbody@tr@td@div@div
+var info_tags := concat %traverse_tags @div
+var image_tags := concat %traverse_tags @a@img
+
+open_new_document
+
+    var year := const 2019
+    var month := const 1
+    var base_url := const https://ru.wikipedia.org/wiki/Шаблон:Potd/YEAR-MONTH
+
+    var year_url := replace %base_url YEAR %year
+    loop 12
+        get_month_name %month
+        add_title %_
+        print %_
+        new_page
+
+        format_length %month 2 0
+        var url := replace %year_url MONTH %_
+
+        load_page %url
+        print_to_file %page_filename %_
+
+        var day := const 1
+        days_count_by_month %year %month
+        loop %_
+            replace %info_tags DAY %day
+            var image_info := get_element_from_html %page_filename %_ field text
+
+            replace %image_tags DAY %day
+            var image_url := get_element_from_html %page_filename %_ attr src
+
+            add_image_by_url %image_url
+            new_paragraph
+            add_text %image_info
+
+            new_page
+            day := inc %day
+        endloop
+
+        month := inc %month
+    endloop
+
+save_hard_as jan_feb_2019.docx
