@@ -45,6 +45,7 @@ class Controller:
     @classmethod
     def save_file(cls, text):
         if not cls.__file_name:
+            Logger.log("Before saving, open some file")
             return
 
         cls.__text = TextStyler.rich_2_plain(text)

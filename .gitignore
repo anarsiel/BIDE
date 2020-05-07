@@ -56,3 +56,6 @@ docs/_build/
 
 # PyBuilder
 target/
+/index.html
+/print_239.o.bpp
+/best_photos_2019.o.bpp

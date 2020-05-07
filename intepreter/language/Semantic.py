@@ -1,4 +1,5 @@
 class Semantic:
+    __extension = 'bpp'
     __variable_name_pattern = '[%][a-zA-Z_][a-zA-Z0-9_]*'
     __symbols = {'var_separator'   : ':=',
                  'var'             : 'var',
@@ -18,3 +19,7 @@ class Semantic:
     @staticmethod
     def get_operators():
         return Semantic.__operators
+
+    @staticmethod
+    def get_extension():
+        return Semantic.__extension

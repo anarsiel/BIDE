@@ -20,15 +20,14 @@ class Interpreter:
         filename = copy.deepcopy(filename)
         ModuleManager.download_default_modules()
 
-        Logger.log("\nCompiling...")
+        Logger.log("Compiling...")
 
         try:
             filename = self.__preproccessor.preprocess_file(filename)
         except Preprocessor.ParseException as exception:
             raise Interpreter.CompilationError("Compilation error: " + str(exception))
 
-        Logger.log("Compilation succeed.\n")
-        Logger.log("\nRunning...")
+        Logger.log("Compilation succeed. Running...")
 
         with open(filename) as f:
             lines = [line.rstrip() for line in f]
@@ -53,7 +52,7 @@ class Interpreter:
 
             DataProvider.inc_current_line()
 
-        Logger.log("\nProgram finished.\n")
+        Logger.log("Program finished.")
 
 
     def __parse_line(self, line: str):

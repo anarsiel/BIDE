@@ -20,7 +20,7 @@ class Preprocessor:
         except Validator.ValidationError as exception:
             raise Preprocessor.ParseException(str(exception))
 
-        o_filename = filename.replace('.rpaf', '.o.rpaf')
+        o_filename = filename.replace(f'.{Semantic.get_extension()}', f'.o.{Semantic.get_extension()}')
         with open(filename) as r:
             lines = [line.rstrip() for line in r]
 

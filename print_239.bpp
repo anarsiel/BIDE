@@ -1,0 +1,11 @@
+import IO
+import ALGO
+
+var x := const 239
+print %x
+
+x := const text 
+inc %x                        # error here
+
+
+

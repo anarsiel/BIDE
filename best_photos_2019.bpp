@@ -19,7 +19,7 @@ open_new_document
     var base_url := const https://ru.wikipedia.org/wiki/Шаблон:Potd/YEAR-MONTH
 
     var year_url := replace %base_url YEAR %year
-    loop 12
+    loop 2
         get_month_name %month
         add_title %_
         print %_

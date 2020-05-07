@@ -42,9 +42,9 @@ class Validator:
             )
 
         file_extension = value.split('.')[-1]
-        if file_extension != 'rpaf':
+        if file_extension != Semantic.get_extension():
             raise Validator.ValidationError(
-                "File extension must be '.rpaf'."
+                f"File extension must be '.{Semantic.get_extension()}'."
             )
 
     @staticmethod
