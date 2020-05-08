@@ -158,7 +158,7 @@ Rectangle {
                     }
 
                     FpsTimer {
-                        interval: 2000;
+                        interval: 5000;
 
                         onTriggered: {
                             if (!bridge.is_text_empty()) {

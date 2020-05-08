@@ -1,11 +1,15 @@
 import IO
 import ALGO
+# import WEB
 
-var x := const 239
+var x := const 239    # I do love 239  ¯\_(•ᴗ•)_/¯ 
 print %x
 
 x := const text 
 inc %x                        # error here
+
+
+
 
 
 

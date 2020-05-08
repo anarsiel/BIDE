@@ -8,9 +8,9 @@ import DOCX
 import WEB
 
 var page_filename := const index.html
-var traverse_tags := const @html@body@div!3@div!3@div!4@div@table!DAY@tbody@tr@td@div@div
-var info_tags := concat %traverse_tags @div
-var image_tags := concat %traverse_tags @a@img
+var traverse_tags := const @html@body@div!3@div!3@div!4@div@table!DAY@tbody@tr@td@div@div  # path to info and image
+var info_tags := concat %traverse_tags @div                                                                                                     # info
+var image_tags := concat %traverse_tags @a@img                                                                                           # image
 
 open_new_document
 
@@ -19,7 +19,7 @@ open_new_document
     var base_url := const https://ru.wikipedia.org/wiki/Шаблон:Potd/YEAR-MONTH
 
     var year_url := replace %base_url YEAR %year
-    loop 2
+    loop 2 # 12
         get_month_name %month
         add_title %_
         print %_
@@ -51,4 +51,4 @@ open_new_document
         month := inc %month
     endloop
 
-save_hard_as jan_feb_2019.docx
+save_hard_as all_months.docx

@@ -4,7 +4,8 @@ class Semantic:
     __symbols = {'var_separator'   : ':=',
                  'var'             : 'var',
                  'import'          : 'import',
-                 'return_variable' : '_'}
+                 'return_variable' : '_',
+                 'comment'         : '#'}
 
     __operators = [':=', '%']
 
