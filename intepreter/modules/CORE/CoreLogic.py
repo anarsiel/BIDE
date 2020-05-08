@@ -35,8 +35,8 @@ class CoreLogic:
 class Core:
     __info = [
         ['import',  None, [str], None, None],
-        ['endloop', CoreLogic.do_endloop, [], None, None],
         ['loop', CoreLogic.do_loop, [int], 'endloop', CoreValidator.validate_loop],
+        ['endloop', CoreLogic.do_endloop, [], None, None],
         ['goto', CoreLogic.do_goto, [str], None, CoreValidator.validate_goto],
         ['label', CoreLogic.do_label, [str], None, None],
         ['var', CoreLogic.do_var, [str, str, 'command'], None, CoreValidator.validate_var],

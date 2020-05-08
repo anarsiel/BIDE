@@ -1,23 +1,22 @@
 import copy
 
 from intepreter.language.Semantic import Semantic
-from intepreter.modules.DataProvider import DataProvider
 from intepreter.modules.ModuleManager import ModuleManager
 
 
 class TextStyler:
-    __beginning = '<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">'
-    __ending = '</p></body></html>'
     __just_replace = {
         '\n' : '<br/>',
         ' '  : '&nbsp;'
     }
 
-    __word_type = {'commands'   : ModuleManager.get_all_commands_names(),
+    __word_type = {'commands'   : sorted(ModuleManager.get_all_commands_names(),
+                                         key = lambda x: len(x),
+                                         reverse=True),
                    'operators'  : Semantic.get_operators() }
 
     __type_color = {'commands'   : 'blue',
-                    'operators' : 'red' }
+                    'operators'  : 'red' }
 
     @classmethod
     def plain_2_rich(cls, text):
